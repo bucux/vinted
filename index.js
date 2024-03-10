@@ -5,6 +5,7 @@ const app = express() // cette ligne doit être placée avant les requires des r
 
 const routerUser = require('./routes/user')
 const routerOffer = require('./routes/offer')
+const PORT = process.env.PORT ? process.env.PORT : 3000
 
 app.use(cors())
 app.use(express.json())
@@ -15,4 +16,4 @@ app.all('*', (req, res)=>{
   res.status(404).json({message: 'page inexistante'})
 })
 
-app.listen(3000, ()=>{console.log('server ok sur port 3000')})
+app.listen(PORT, ()=>{console.log(`server ok sur port ${PORT}`)})
